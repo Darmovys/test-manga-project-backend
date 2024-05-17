@@ -12,9 +12,7 @@ import { UserController, PostController, BookController } from './controllers/in
 import { handleValidationErrors, checkAuth } from './utils/index.js';
 
 mongoose
-  .connect(
-    `mongodb+srv://${process.env.DATA_NAME}:${process.env.DATA_PASS}@cluster0.uzn363k.mongodb.net/mangaDB?retryWrites=true&w=majority&appName=Cluster0`,
-  )
+  .connect(process.env.MONGODB_CONNECT_URI)
   .then(() => console.log('DB ok'))
   .catch((err) => console.log('DB err', err));
 
